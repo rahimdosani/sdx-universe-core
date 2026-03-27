@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shlesha's Birthday Universe ✨</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body class="locked">
+
+<!-- 🌌 BACKGROUND -->
+<canvas id="stars"></canvas>
+<div id="hearts-container"></div>
+
+<!-- 🔐 UNLOCK SCREEN -->
+<div id="unlock-screen" class="unlock-screen">
+    <div class="unlock-box">
+        <h2>Our Little Present 💖</h2>
+        <p class="unlock-hint">Hint: To unlock, enter Your birthdate 😉</p>
+
+        <input type="tel" id="unlock-input" placeholder="DDMM" maxlength="4" inputmode="numeric">
+        <button onclick="unlock()">Unlock</button>
+    </div>
+</div>
+
+<!-- 🎵 MUSIC -->
+<audio id="bgmusic" loop>
+    <source src="music.mp3">
+</audio>
+
+
+<!-- 🔥 HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 id="typewriter" class="glow-text"></h1>
+        <p class="hero-subtitle">Just a small gesture from my side ✨</p>
+
+        <button onclick="startExperience()" class="primary-btn glow-btn">
+            Begin 💖
+        </button>
+    </div>
+</section>
+
+<!-- 🎂 BIRTHDAY -->
+<section class="section">
+    <div class="content">
+        <h2 class="glow-text">Happy Birthday 🎂</h2>
+
+        <p class="center-text">
+Happy Birthday to the most important person in my life,<br>
+you are a blessing in this world.<br><br>
+
+This phase too shall pass…<br>
+I just want to see you happy, always. 💖
+</p>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+    </div>
+</section>
+
+<!-- 📸 MEMORIES (FIXED SLIDER) -->
+<section class="section">
+    <div class="content">
+        <h2 class="glow-text">Our Memories 📸</h2>
+
+        <div class="slider">
+
+            <button class="nav left" onclick="slidePolaroid(-1)">❮</button>
+
+            <div class="viewport">
+                <div class="track" id="polaroidTrack">
+
+                    <div class="polaroid"><img src="images/photo1.jpeg" onclick="openImage(this.src)" loading="lazy"><p>That day ❤️</p></div>
+                    <div class="polaroid"><img src="images/photo2.jpeg" onclick="openImage(this.src)" loading="lazy"><p>We laughed too much 😂</p></div>
+                    <div class="polaroid"><img src="images/photo3.jpeg" onclick="openImage(this.src)" loading="lazy"><p>Still my favorite moment ✨</p></div>
+                    <div class="polaroid"><img src="images/photo4.jpeg" onclick="openImage(this.src)" loading="lazy"><p>Just us 🤍</p></div>
+                    <div class="polaroid"><img src="images/photo5.jpeg" onclick="openImage(this.src)" loading="lazy"><p>Couldn’t stop smiling 😊</p></div>
+                    <div class="polaroid"><img src="images/photo6.jpeg" onclick="openImage(this.src)" loading="lazy"><p>This meant everything 💖</p></div>
+
+                </div>
+            </div>
+
+            <button class="nav right" onclick="slidePolaroid(1)">❯</button>
+
+        </div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+    </div>
+</section>
+<!-- 🎥 VIDEO SECTION -->
+<section class="section" id="video">
+    <div class="content video-content">
+
+        <h2 class="glow-text">Something I Made For You 🎥</h2>
+
+        <p class="center-text">
+            I didn’t just want to say things…  
+            I wanted to show you 💖
+        </p>
+
+        <div class="video-wrapper" id="videoContainer">
+
+    <!-- VIDEO -->
+    <video id="loveVideo" playsinline webkit-playsinline controls preload="metadata">
+        <source src="videos/edits.mp4" type="video/mp4">
+    </video>
+
+    <!-- overlay play -->
+    <div class="video-overlay" id="videoOverlay">
+        <div class="play-btn">▶</div>
+    </div>
+
+</div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="content music-content">
+
+        <h2 class="glow-text">Songs That Remind Me of You 🎵</h2>
+
+        <div class="music-grid">
+
+            <div class="song-card">
+                <div class="song-text">
+                    <p>This always reminds me of you 💖</p>
+                    <span class="song-name">Tum Se Hi</span>
+                </div>
+                <audio controls>
+                    <source src="songs/tumsehi.mp3">
+                </audio>
+            </div>
+
+            <div class="song-card">
+                <div class="song-text">
+                    <p>If I had to describe you ✨</p>
+                    <span class="song-name">Yellow</span>
+                </div>
+                <audio controls>
+                    <source src="songs/yellow.mp3">
+                </audio>
+            </div>
+
+            <div class="song-card">
+                <div class="song-text">
+                    <p>This feels like us 🎶</p>
+                    <span class="song-name">I Really Do</span>
+                </div>
+                <audio controls>
+                    <source src="songs/Ireallydo.mp3">
+                </audio>
+            </div>
+
+            <div class="song-card">
+                <div class="song-text">
+                    <p>What you mean to me 🌙</p>
+                    <span class="song-name">Sheesha</span>
+                </div>
+                <audio controls>
+                    <source src="songs/sheesha.mp3">
+                </audio>
+            </div>
+
+        </div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+
+    </div>
+</section>
+<!-- 💭 THINGS I NEVER SAID -->
+<section class="section" id="unsaid">
+    <div class="content unsaid-content">
+
+        <h2 class="glow-text">Things I Never Said 💭</h2>
+
+        <div class="unsaid-box">
+            <p class="unsaid-line">I don’t always say it… but you matter more than you think.</p>
+            <p class="unsaid-line">Even on your worst days, you’re still my favorite person.</p>
+            <p class="unsaid-line">You mean more to me than I can ever explain.</p>
+            <p class="unsaid-line">Sometimes I wish I could make everything easier for you.</p>
+            <p class="unsaid-line">You will always be my favourite incomplete wish.</p>
+        </div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+
+    </div>
+</section>
+<section class="section" id="quiz">
+    <div class="content quiz-content">
+
+        <h2 class="glow-text">A Small Challenge For You 💭</h2>
+
+        <!-- INTRO -->
+        <div id="quiz-intro">
+            <p class="center-text">
+                Answer this little quiz to unlock something special 💌
+            </p>
+            <button class="primary-btn" onclick="startQuiz()">Begin</button>
+        </div>
+
+        <!-- QUIZ -->
+        <div id="quiz-box" style="display:none;">
+
+            <p id="question"></p>
+
+            <div class="options">
+                <button class="option-btn" onclick="selectAnswer(0)"></button>
+                <button class="option-btn" onclick="selectAnswer(1)"></button>
+                <button class="option-btn" onclick="selectAnswer(2)"></button>
+                <button class="option-btn" onclick="selectAnswer(3)"></button>
+            </div>
+
+            <p id="quiz-feedback"></p>
+
+        </div>
+
+        <!-- RESULT -->
+        <div id="quiz-result" style="display:none;">
+            <h3 id="score-text"></h3>
+            <p id="final-message"></p>
+        </div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button id="quiz-continue" onclick="nextSection()" class="primary-btn" style="display:none;">
+                Unlock 💌
+            </button>
+        </div>
+
+    </div>
+</section>
+<!-- 💌 LETTER SECTION -->
+<section class="section" id="letter">
+    <div class="content letter-content">
+
+        <h2 class="glow-text">Something I Wanted To Say 💌</h2>
+
+        <div class="letter-box">
+            <p id="letter-text"></p>
+        </div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+
+    </div>
+</section>
+<!-- 🛤️ MEMORY LANE -->
+<section class="section" id="memory-lane">
+    <div class="content memory-content">
+
+        <h2 class="glow-text">Our Little Memory Lane 🛤️</h2>
+
+        <div class="memory-options">
+            <button onclick="showMemory(0)">First Time 💫</button>
+            <button onclick="showMemory(1)">Can't forget ✨</button>
+            <button onclick="showMemory(2)">Last Year your Birthday 😅</button>
+            <button onclick="showMemory(3)">Can't forget 💖</button>
+            <button onclick="showMemory(4)">Now 🌙</button>
+        </div>
+
+        <div class="memory-display" id="memory-display">
+
+            <img id="memory-img" src="" alt="">
+            <p id="memory-text">Select something above… 💭</p>
+
+        </div>
+
+        <div class="button-group">
+            <button onclick="previousSection()" class="secondary-btn">Back</button>
+            <button onclick="nextSection()" class="primary-btn">Continue</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- 🎂 FINAL -->
+<section class="section final">
+    <div class="content">
+        <h1 class="glow-text big">Happy Birthday Shlesha 💖</h1>
+        <p class="cake-hint">click on the cake 🎂</p>
+        <div class="cake" onclick="blowCandles()">🎂</div>
+    </div>
+</section>
+<div id="imageModal" class="image-modal" onclick="closeImage()">
+    <img id="modalImg">
+</div>
+
+<script src="main.js"></script>
+
+
+</body>
+</html>
