@@ -418,7 +418,7 @@ const quizData = [
         answer: 2
     },
     {
-        question: "When did we have our first date?",
+        question: "When did we go on our first date?",
         options: ["5th feb", "2nd feb", "14th feb", "25th jan"],
         answer: 0
     },
@@ -513,9 +513,9 @@ function showResult(){
 }
 const letterContent = `
 
-I don’t really know how to say everything properly…
-
-But I just wanted you to know this.
+Happy Birthday to you
+I wish you all the success and happinesss.
+I hope all your wishes get fulfilled
 
 You’ve become someone really important to me.
 More than I expected… more than I say.
@@ -576,7 +576,7 @@ const memoryData = [
         img: "images/memory4.jpeg"
     },
     {
-        text: "I don’t know the future… but I want you in it 🌙",
+        text: "I don’t know what the future holds… 🌙",
         img: "images/memory5.jpeg"
     }
 ];
